@@ -5,11 +5,18 @@ const config = {
   name: 'prueba',
   connector: 'mssql',
   url: 'mssql://NormanVillalvir5_SQLLogin_1:uiiuqyjhzh@ExamenBDD.mssql.somee.com',
-  host: 'ExamenBDD.mssql.somee.com',
+  host: '',
   port: 1433,
-  user: 'NormanVillalvir5_SQLLogin_1',
-  password: 'uiiuqyjhzh',
+  user: '',
+  password: '',
   database: 'ExamenBDD'
+
+  //url: '',
+  /*host: 'DESKTOP-OQFITP6',
+  port: 1433,
+  user: 'Norman',
+  password: '1234',
+  database: 'Prueba'*/
 };
 
 // Observe application's life cycle to disconnect the datasource when

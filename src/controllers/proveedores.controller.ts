@@ -4,17 +4,21 @@ import {
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
+  del, get,
+  getModelSchemaRef, param,
+
+
+  patch, post,
+
+
+
+
   put,
-  del,
-  requestBody,
+
+  requestBody
 } from '@loopback/rest';
 import {Proveedores} from '../models';
 import {ProveedoresRepository} from '../repositories';
@@ -22,8 +26,8 @@ import {ProveedoresRepository} from '../repositories';
 export class ProveedoresController {
   constructor(
     @repository(ProveedoresRepository)
-    public proveedoresRepository : ProveedoresRepository,
-  ) {}
+    public proveedoresRepository: ProveedoresRepository,
+  ) { }
 
   @post('/proveedores', {
     responses: {
@@ -39,7 +43,7 @@ export class ProveedoresController {
         'application/json': {
           schema: getModelSchemaRef(Proveedores, {
             title: 'NewProveedores',
-            
+
           }),
         },
       },
@@ -169,5 +173,18 @@ export class ProveedoresController {
   })
   async deleteById(@param.path.number('id') id: number): Promise<void> {
     await this.proveedoresRepository.deleteById(id);
+  }
+
+  @get('/Proveedores/SP_Proveedores_1')
+  async SP_Proveedores_1(): Promise<any> {
+    let dato: any[] = await this.GetSP();
+
+    return dato;
+  }
+
+  async GetSP() {
+
+    return await this.proveedoresRepository.dataSource.execute('EXECUTE SP_Proveedores_1');
+
   }
 }

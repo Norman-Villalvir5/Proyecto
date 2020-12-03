@@ -7,4 +7,9 @@ SELECT Articulo.costounitario, CompraProveedoresDetalle.Monto FROM Articulo, Com
 WHERE Articulo.costounitario=CompraProveedoresDetalle.Monto
 GO
 
-SELECT * FROM V_1
+CREATE PROCEDURE SP_Proveedores_1 AS
+SELECT Inventario.idarticulo, Inventario.cantidad, Proveedores.nombre from Inventario
+INNER JOIN Proveedores on Inventario.idproveedor=Proveedores.id
+ORDER BY Inventario.cantidad DESC
+
+EXECUTE SP_Proveedores_1

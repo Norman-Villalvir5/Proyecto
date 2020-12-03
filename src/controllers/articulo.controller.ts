@@ -224,6 +224,8 @@ export class ArticuloController {
     return await this.articuloRepository.dataSource.execute('SELECT * FROM V_4');
 
   }
+
+
 }
 
 
