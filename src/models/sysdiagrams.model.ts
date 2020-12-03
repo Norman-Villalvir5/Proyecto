@@ -42,7 +42,7 @@ export class Sysdiagrams extends Entity {
     length: -1,
     mssql: {columnName: 'definition', dataType: 'varbinary', dataLength: -1, dataPrecision: null, dataScale: null, nullable: 'YES'},
   })
-  definition?: Binary;
+  definition?: Number;
 
   // Define well-known properties here
 

@@ -4,17 +4,21 @@ import {
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
+  del, get,
+  getModelSchemaRef, param,
+
+
+  patch, post,
+
+
+
+
   put,
-  del,
-  requestBody,
+
+  requestBody
 } from '@loopback/rest';
 import {Articulo} from '../models';
 import {ArticuloRepository} from '../repositories';
@@ -22,8 +26,8 @@ import {ArticuloRepository} from '../repositories';
 export class ArticuloController {
   constructor(
     @repository(ArticuloRepository)
-    public articuloRepository : ArticuloRepository,
-  ) {}
+    public articuloRepository: ArticuloRepository,
+  ) { }
 
   @post('/articulos', {
     responses: {
@@ -39,7 +43,7 @@ export class ArticuloController {
         'application/json': {
           schema: getModelSchemaRef(Articulo, {
             title: 'NewArticulo',
-            
+
           }),
         },
       },
@@ -170,4 +174,58 @@ export class ArticuloController {
   async deleteById(@param.path.number('id') id: number): Promise<void> {
     await this.articuloRepository.deleteById(id);
   }
+  @get('/articulo/V_1')
+  async V_1(): Promise<any> {
+    let dato: any[] = await this.getV_1();
+
+    return dato;
+  }
+
+  async getV_1() {
+
+    return await this.articuloRepository.dataSource.execute('SELECT * FROM V_1');
+
+
+  }
+
+  @get('/articulo/V_2')
+  async V_2(): Promise<any> {
+    let dato: any[] = await this.getV_2();
+
+    return dato;
+  }
+
+  async getV_2() {
+
+    return await this.articuloRepository.dataSource.execute('SELECT * FROM V_2');
+
+  }
+  @get('/articulo/V_3')
+  async V_3(): Promise<any> {
+    let dato: any[] = await this.getV_3();
+
+    return dato;
+  }
+
+  async getV_3() {
+
+    return await this.articuloRepository.dataSource.execute('SELECT * FROM V_3');
+
+  }
+  @get('/articulo/V_4')
+  async V_4(): Promise<any> {
+    let dato: any[] = await this.getV_4();
+
+    return dato;
+  }
+
+  async getV_4() {
+
+    return await this.articuloRepository.dataSource.execute('SELECT * FROM V_4');
+
+  }
 }
+
+
+
+

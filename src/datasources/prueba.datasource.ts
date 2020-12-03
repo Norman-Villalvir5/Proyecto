@@ -4,12 +4,12 @@ import {juggler} from '@loopback/repository';
 const config = {
   name: 'prueba',
   connector: 'mssql',
-  url: '',
-  host: 'DESKTOP-OQFITP6',
+  url: 'mssql://NormanVillalvir5_SQLLogin_1:uiiuqyjhzh@ExamenBDD.mssql.somee.com',
+  host: 'ExamenBDD.mssql.somee.com',
   port: 1433,
-  user: 'Norman',
-  password: '1234',
-  database: 'Prueba'
+  user: 'NormanVillalvir5_SQLLogin_1',
+  password: 'uiiuqyjhzh',
+  database: 'ExamenBDD'
 };
 
 // Observe application's life cycle to disconnect the datasource when
